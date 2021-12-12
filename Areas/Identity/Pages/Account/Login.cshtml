@@ -1,0 +1,82 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<meta charset="utf-8">
+
+<head>
+	<title>Admin Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../../css/loginstyle.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/flaticon.css"/>
+
+</head>
+<body>
+    <form id="account" method="post" class="login-form">
+      <p class="login-text">
+        <span class="fa-stack fa-lg">
+          <i class="flaticon-lock"></i>
+          <i class="fa fa-lock fa-stack-1x"></i>
+        </span>
+      </p>
+      <div class="form-group">
+      <input asp-for="Input.Email" autocomplete="username" aria-required="true" type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
+      <input type="password" class="login-password" asp-for="Input.Password" autocomplete="current-password" aria-required="true" required="true" placeholder="Password" />
+       <div class="checkbox">
+        <label asp-for="Input.RememberMe" class="form-label" style="color: white; padding-left: 20px;">
+            <input class="form-check-input" asp-for="Input.RememberMe" />
+            @Html.DisplayNameFor(m => m.Input.RememberMe)
+        </label>
+       </div>
+      <button id="login-submit" type="submit" class="login-submit">Log in</button>
+      </div>
+    </form>
+<div class="underlay-photo"></div>
+<div class="underlay-black"></div>
+</body>
+<!--<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h2>Use a local account to log in.</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                    <label asp-for="Input.Password" class="form-label"></label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div>
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe" class="form-label">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                </div>
+                <div>
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>-->
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
